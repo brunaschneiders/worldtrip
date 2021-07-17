@@ -1,15 +1,12 @@
 import { Grid, Image, IconButton, Icon } from "@chakra-ui/react";
+import { useRouter } from "next/dist/client/router";
 import { BsChevronLeft } from "react-icons/bs";
 
-interface HeaderProps {
-  showBackButton?: boolean;
-  onBackButtonClicked?: () => void;
-}
+export function Header() {
+  const { asPath, back } = useRouter();
 
-export function Header({
-  showBackButton = true,
-  onBackButtonClicked,
-}: HeaderProps) {
+  const isHomePage = asPath === "/";
+
   return (
     <Grid
       w="100%"
@@ -21,13 +18,13 @@ export function Header({
       alignItems="center"
       templateColumns="repeat(3, 1fr)"
     >
-      {showBackButton && (
+      {!isHomePage && (
         <IconButton
           aria-label="Back"
           icon={<Icon as={BsChevronLeft} />}
           fontSize="24"
           variant="unstyled"
-          onClick={onBackButtonClicked}
+          onClick={back}
           gridColumn="1"
           justifySelf="flex-start"
         />
