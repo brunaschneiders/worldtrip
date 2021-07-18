@@ -36,7 +36,7 @@ export function BannerHome() {
           alt="airplane"
           w="400px"
           position="absolute"
-          right="10"
+          right="20"
         />
       )}
     </Flex>

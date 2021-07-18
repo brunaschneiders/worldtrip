@@ -2,9 +2,11 @@ import { Flex, Grid, Text, useBreakpointValue } from "@chakra-ui/react";
 
 import { BannerHome } from "../components/BannerHome";
 import { Separator } from "../components/Separator";
+import { ContinentsSlider } from "../components/ContinentsSlider";
 import { TripTypeIcon } from "../components/TripTypeIcon";
 
 import { tripTypes } from "../utils/tripTypes";
+import { continents } from "../utils/continents";
 
 export default function Home() {
   const isMobileVersion = useBreakpointValue({
@@ -13,7 +15,7 @@ export default function Home() {
   });
 
   return (
-    <Flex h="100vh - 24" w="100%" mb="14" direction="column">
+    <Flex w="100%" mb="14" direction="column">
       <BannerHome />
 
       <Grid
@@ -41,10 +43,17 @@ export default function Home() {
 
       <Separator />
 
-      <Text fontSize={["xl", "4xl"]} fontWeight="500" textAlign="center">
+      <Text
+        fontSize={["xl", "4xl"]}
+        fontWeight="500"
+        textAlign="center"
+        marginBottom="10"
+      >
         Vamos nessa? <br />
         Então escolha seu continente
       </Text>
+
+      <ContinentsSlider continents={continents} />
     </Flex>
   );
 }
