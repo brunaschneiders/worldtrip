@@ -1,6 +1,7 @@
-import { Flex, Grid, HStack, useBreakpointValue } from "@chakra-ui/react";
+import { Flex, Grid, Text, useBreakpointValue } from "@chakra-ui/react";
 
 import { BannerHome } from "../components/BannerHome";
+import { Separator } from "../components/Separator";
 import { TripTypeIcon } from "../components/TripTypeIcon";
 
 import { tripTypes } from "../utils/tripTypes";
@@ -19,7 +20,7 @@ export default function Home() {
         mt={["6", "6", "16"]}
         mx={["10", "24"]}
         templateColumns={["repeat(3, 1fr)", "repeat(3, 1fr)", "repeat(5, 1fr)"]}
-        gap={["3", "10"]}
+        gap={["3", "4", "10"]}
         justifyContent="center"
       >
         {tripTypes.map(tripType => (
@@ -37,6 +38,13 @@ export default function Home() {
           showFullIcon={!isMobileVersion}
         />
       </Grid>
+
+      <Separator />
+
+      <Text fontSize={["xl", "4xl"]} fontWeight="500" textAlign="center">
+        Vamos nessa? <br />
+        Então escolha seu continente
+      </Text>
     </Flex>
   );
 }
