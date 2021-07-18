@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
   Pagination,
@@ -21,6 +21,7 @@ SwiperCore.use([
 
 type Continent = {
   name: string;
+  description: string;
   imageUrl: string;
 };
 
@@ -28,7 +29,7 @@ interface ContinentsSliderProps {
   continents: Continent[];
 }
 
-export function ContinentsSlider({}: ContinentsSliderProps) {
+export function ContinentsSlider({ continents }: ContinentsSliderProps) {
   return (
     <Box w="100%" maxWidth={1240} h={["250px", "450px"]} px={["6", "20"]}>
       <Swiper
@@ -47,13 +48,29 @@ export function ContinentsSlider({}: ContinentsSliderProps) {
             color="#999999"
           >
             <Flex
-              backgroundImage={continent.imageUrl}
+              background={`linear-gradient(0deg, rgba(28, 20, 1, 0.35), rgba(28, 20, 1, 0.35)), url(${continent.imageUrl})`}
               backgroundRepeat="no-repeat"
               backgroundSize="cover"
               backgroundPosition="center"
               w="100%"
               h={["250px", "450px"]}
-            ></Flex>
+              px={["10", "24"]}
+              justifyContent="center"
+              alignItems="center"
+              direction="column"
+              color="gray.100"
+            >
+              <Text
+                fontSize={["xl", "5xl"]}
+                textAlign="center"
+                fontWeight="700"
+              >
+                {continent.name}
+              </Text>
+              <Text fontSize={["xl", "2xl"]} textAlign="center">
+                {continent.description}
+              </Text>
+            </Flex>
           </SwiperSlide>
         ))}
       </Swiper>
