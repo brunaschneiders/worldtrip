@@ -1,4 +1,5 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, Heading } from "@chakra-ui/react";
+import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
   Pagination,
@@ -8,7 +9,6 @@ import SwiperCore, {
   Autoplay,
   EffectFlip,
 } from "swiper/core";
-import { continents } from "../../utils/continents";
 
 SwiperCore.use([
   Pagination,
@@ -20,6 +20,7 @@ SwiperCore.use([
 ]);
 
 type Continent = {
+  slug: string;
   name: string;
   description: string;
   imageUrl: string;
@@ -42,11 +43,7 @@ export function ContinentsSlider({ continents }: ContinentsSliderProps) {
         navigation
       >
         {continents.map(continent => (
-          <SwiperSlide
-            key={continent.name}
-            style={{ marginRight: 0 }}
-            color="#999999"
-          >
+          <SwiperSlide key={continent.name} style={{ marginRight: 0 }}>
             <Flex
               background={`linear-gradient(0deg, rgba(28, 20, 1, 0.35), rgba(28, 20, 1, 0.35)), url(${continent.imageUrl})`}
               backgroundRepeat="no-repeat"
@@ -60,16 +57,20 @@ export function ContinentsSlider({ continents }: ContinentsSliderProps) {
               direction="column"
               color="gray.100"
             >
-              <Text
-                fontSize={["xl", "5xl"]}
-                textAlign="center"
-                fontWeight="700"
-              >
-                {continent.name}
-              </Text>
-              <Text fontSize={["xl", "2xl"]} textAlign="center">
-                {continent.description}
-              </Text>
+              <Link href={`/continents/${continent.slug}`}>
+                <a>
+                  <Heading
+                    fontSize={["xl", "5xl"]}
+                    textAlign="center"
+                    fontWeight="700"
+                  >
+                    {continent.name}
+                  </Heading>
+                  <Text fontSize={["xl", "2xl"]} textAlign="center">
+                    {continent.description}
+                  </Text>
+                </a>
+              </Link>
             </Flex>
           </SwiperSlide>
         ))}

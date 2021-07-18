@@ -19,6 +19,7 @@ export const theme = extendTheme({
         bg: "gray.100",
         color: "gray.700",
       },
+      a: { textDecoration: "none" },
     },
   },
 });
