@@ -22,7 +22,7 @@ SwiperCore.use([
 type Continent = {
   slug: string;
   name: string;
-  description: string;
+  shortDescription: string;
   imageUrl: string;
 };
 
@@ -57,7 +57,7 @@ export function ContinentsSlider({ continents }: ContinentsSliderProps) {
               direction="column"
               color="gray.100"
             >
-              <Link href={`/continents/${continent.slug}`}>
+              <Link href={`/continent/${continent.slug}`}>
                 <a>
                   <Heading
                     fontSize={["xl", "5xl"]}
@@ -67,7 +67,7 @@ export function ContinentsSlider({ continents }: ContinentsSliderProps) {
                     {continent.name}
                   </Heading>
                   <Text fontSize={["xl", "2xl"]} textAlign="center">
-                    {continent.description}
+                    {continent.shortDescription}
                   </Text>
                 </a>
               </Link>
