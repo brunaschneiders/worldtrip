@@ -6,11 +6,6 @@ interface BannerContinentProps {
 }
 
 export function BannerContinent({ imageUrl, continent }: BannerContinentProps) {
-  const isWideVersion = useBreakpointValue({
-    base: false,
-    lg: true,
-  });
-
   return (
     <Flex
       background={`linear-gradient(0deg, rgba(28, 20, 1, 0.35), rgba(28, 20, 1, 0.35)), url(${imageUrl})`}
