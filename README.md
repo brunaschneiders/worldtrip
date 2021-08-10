@@ -14,10 +14,10 @@
 - [x] Banner.
 - [x] CTA (call to action).
 
-- Versão Web
+- Versão Web <br/>
   ![](webVersion.gif)
 
-- Versão Mobile
+- Versão Mobile <br/>
   ![](mobileVersion.gif)
 
 ## 🛠 Tecnologias
@@ -29,7 +29,6 @@ As seguintes tecnologias foram utilizadas na construção deste projeto:
 - [Typescript](https://www.typescriptlang.org/)
 - [Chakra UI](https://chakra-ui.com/)
 - [Swiper](https://swiperjs.com/react)
--
 
 ## 🚀 Como executar o projeto
 
